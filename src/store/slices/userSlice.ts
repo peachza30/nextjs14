@@ -1,71 +1,53 @@
-import { UserData } from "@/src/models/user.model";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { RootState } from "../store";
+import { UserData } from '@/src/models/user.model';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { RootState } from '@/store/store';
+import * as user from '@/services/users.service';
 
 interface userState {
-    users: UserData[];
-    loading: boolean;
-    cart: number
-  }
-  
+  users: UserData[];
+  loading: boolean;
+  cart: number;
+}
+
 const initialState: userState = {
   users: [],
   loading: false,
   cart: 0,
 };
 
-export const fetchUsers = createAsyncThunk("user/fetchUsers", async () => {
-  const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/users"
-  );
-  return response.data;
+export const fetchUsers = createAsyncThunk('user/fetchUsers', async () => {
+  const response = await user.getUsers();
+  return response;
 });
 
-// export const addEmployee = createAsyncThunk(
-//   "employee/addEmployee",
-//   async (data) => {
-//     const response = await axios.post("http://localhost:8000/api/items", {
-//       name: data.name,
-//       position: data.position,
-//     });
-//     return response.data.response;
+// export const createUsers = createAsyncThunk(
+//   'user/createUsers',
+//   async (data: UserData) => {
+//     const response = await user.createUser(data);
+//     return response;
 //   }
-// );
-
-// export const removeEmployee = createAsyncThunk(
-//   "employee/removeEmployee",
-//   async (data) => {
-//     const response = await axios.delete(
-//       `http://localhost:8000/api/items/${data}`
-//     );
-//     return response.data.response;
-//   }
-// );
-
-// export const modifiedEmployee = createAsyncThunk(
-//   "employee/modifiedEmployee",
-//   async (data) => {
-//     const response = await axios.put(
-//       `http://localhost:8000/api/items/${data.id}`,
-//       {
-//         name: data.name,
-//         position: data.position,
-//       }
-//     );
-//     return response.data.response;
-//   }
-// );
+// )
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     addCart: (state, action) => {
-      state.cart = state.cart + action.payload
+      state.cart = state.cart + action.payload;
     },
   },
   extraReducers: (builder) => {
+    builder
+      .addCase(fetchUsers.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchUsers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users = action.payload;
+      })
+      .addCase(fetchUsers.rejected, (state, action) => {
+        state.loading = false;
+      });
     // builder
     //   .addCase(addEmployee.pending, (state) => {
     //     state.loading = true;
@@ -79,10 +61,6 @@ const userSlice = createSlice({
     //     state.loading = false;
     //     state.message = action.error.message;
     //   });
-
-    builder.addCase(fetchUsers.fulfilled, (state, action) => {
-      state.users = action.payload;
-    });
 
     //     builder.addCase(removeEmployee.fulfilled, (state, action) => {
     //       state.employeeList = state.employeeList.filter(

@@ -1,26 +1,29 @@
-"use client";
-import React from "react";
-import { useSelector } from "react-redux";
-import { useAppDispatch } from "@/src/store/store";
-import { addCart, userSelector } from "@/src/store/slices/userSlice";
-import { Button } from "@mui/material";
+'use client';
+import { Button } from '@mui/material';
+import { signIn } from 'next-auth/react';
+import React from 'react';
+import { FcGoogle } from 'react-icons/fc';
+
 type Props = {};
 
 const Login = (props: Props) => {
-  const dispatch = useAppDispatch();
-  const userReducer = useSelector(userSelector);
-
-  const handleClick = () => {
-    dispatch(addCart(1));
-  };
-
   return (
-    <div>
-      <h1>{userReducer.cart}</h1>
-      <Button variant="contained" onClick={handleClick}>
-        +
-      </Button>
-    </div>
+    <>
+      <div className="mt-5">
+          <h1 className="text-3xl text-blue-500 font-bold text-center">
+            Next JS Starter..
+          </h1>
+        <div className="flex justify-center mt-3">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => signIn('google')}
+          >
+            <FcGoogle size={30} /> Sign in with Google
+          </Button>
+        </div>
+      </div>
+    </>
   );
 };
 
