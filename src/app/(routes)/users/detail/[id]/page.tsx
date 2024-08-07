@@ -1,8 +1,12 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  params: {
+    id: string
+  }
+}
 
-const page = (props: Props) => {
+const page = ({params}: Props) => {
   return (
     <div>page</div>
   )
