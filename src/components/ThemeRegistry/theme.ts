@@ -20,11 +20,11 @@ const theme = createTheme({
   },
   components: {
     MuiButton: {
-      // styleOverrides: {
-      //   root: {
-      //     borderRadius: '12px',
-      //   },
-      // },
+      styleOverrides: {
+        root: {
+          borderRadius: '12px',
+        },
+      },
     },
   },
 });

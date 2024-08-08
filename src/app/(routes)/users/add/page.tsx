@@ -9,7 +9,8 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { UserData } from '@/src/models/user.model';
-import { formValidateSchema } from '@/libs/formValidationSchema';
+import { formUserValidateSchema } from '@/libs/formValidationSchema';
+import { createUsers } from '@/src/store/slices/userSlice';
 
 
 export default function StockCreate() {
@@ -22,11 +23,11 @@ export default function StockCreate() {
     formState: { errors },
   } = useForm<UserData>({
     defaultValues: initialValue,
-    resolver: yupResolver(formValidateSchema),
+    resolver: yupResolver(formUserValidateSchema),
   });
 
   const onSubmit = async (values: UserData) => {
-    console.log(values);
+    dispatch(createUsers(values))
   };
 
   return (

@@ -1,7 +1,8 @@
 'use client';
-import { Box } from '@mui/material';
 import React, { Suspense } from 'react';
 import Loading from '@/components/layout/Loading';
+import { Button } from '@mui/material';
+import { signOut } from 'next-auth/react';
 
 type Props = {
   children: React.ReactNode;
@@ -9,11 +10,16 @@ type Props = {
 
 const layout = ({ children }: Props) => {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+    <div className='container mx-auto'>
+                <Button
+              variant="contained"
+              color="error"
+              onClick={() => signOut({ callbackUrl: '/' })}
+            >
+              Sign Out
+            </Button>
         <Suspense fallback={<Loading />}>{children}</Suspense>
-      </Box>
-    </Box>
+    </div>
   );
 };
 

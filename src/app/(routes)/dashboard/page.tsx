@@ -10,6 +10,7 @@ type Props = {};
 const Dashboard = (props: Props) => {
   const { data: session } = useSession();
 
+
   return (
     <>
       {session && (
@@ -32,13 +33,7 @@ const Dashboard = (props: Props) => {
               Page Users
             </Button>
           </Link>
-          <Button
-              variant="contained"
-              color="error"
-              onClick={() => signOut({ callbackUrl: '/' })}
-            >
-              Sign Out
-            </Button>
+
           </div>
 
          

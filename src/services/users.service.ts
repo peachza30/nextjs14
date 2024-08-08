@@ -1,7 +1,10 @@
 import httpClient from '@/utils/httpClient';
-// import axios from 'axios';
+import { UserData } from '../models/user.model';
 export const getUsers = async () => {
   const { data } = await httpClient.get('/user');
-  // const { data } = await axios.get('http://localhost:8000/api/items');
   return data;
+};
+export const createUser = async (data : UserData) => {
+  const { data: response } = await httpClient.post('/user', data);
+  return response;
 };

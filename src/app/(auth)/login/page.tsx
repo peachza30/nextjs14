@@ -21,6 +21,13 @@ const Login = (props: Props) => {
           >
             <FcGoogle size={30} /> Sign in with Google
           </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => signIn('github')}
+          >
+            Sign in with Github
+          </Button>
         </div>
       </div>
     </>

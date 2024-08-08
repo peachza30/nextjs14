@@ -20,13 +20,14 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers', async () => {
   return response;
 });
 
-// export const createUsers = createAsyncThunk(
-//   'user/createUsers',
-//   async (data: UserData) => {
-//     const response = await user.createUser(data);
-//     return response;
-//   }
-// )
+export const createUsers = createAsyncThunk(
+  'user/createUsers',
+  async (data: UserData) => {
+    
+    const response = await user.createUser(data);
+    return response;
+  }
+)
 
 const userSlice = createSlice({
   name: 'user',
@@ -46,6 +47,17 @@ const userSlice = createSlice({
         state.users = action.payload;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
+        state.loading = false;
+      });
+    builder
+      .addCase(createUsers.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(createUsers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users.push(action.payload);
+      })
+      .addCase(createUsers.rejected, (state, action) => {
         state.loading = false;
       });
     // builder
