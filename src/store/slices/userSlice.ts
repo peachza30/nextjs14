@@ -6,6 +6,7 @@ import * as user from '@/services/users.service';
 interface userState {
   users: UserData[];
   loading: boolean;
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
   cart: number;
 }
 
@@ -13,6 +14,7 @@ const initialState: userState = {
   users: [],
   loading: false,
   cart: 0,
+  status: 'idle'
 };
 
 export const fetchUsers = createAsyncThunk('user/fetchUsers', async () => {
@@ -20,11 +22,24 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers', async () => {
   return response;
 });
 
-export const createUsers = createAsyncThunk(
-  'user/createUsers',
+export const createUser = createAsyncThunk(
+  'user/createUser',
   async (data: UserData) => {
-    
     const response = await user.createUser(data);
+    return response;
+  }
+)
+export const updateUser = createAsyncThunk(
+  'user/updateUser',
+  async (data: UserData) => {
+    const response = await user.updateUser(data);
+    return response;
+  }
+)
+export const deleteUser = createAsyncThunk(
+  'user/deleteUser',
+  async (data: UserData) => {
+    const response = await user.deleteUser(data);
     return response;
   }
 )
@@ -50,48 +65,46 @@ const userSlice = createSlice({
         state.loading = false;
       });
     builder
-      .addCase(createUsers.pending, (state) => {
+      .addCase(createUser.pending, (state) => {
         state.loading = true;
       })
-      .addCase(createUsers.fulfilled, (state, action) => {
+      .addCase(createUser.fulfilled, (state, action) => {
         state.loading = false;
         state.users.push(action.payload);
       })
-      .addCase(createUsers.rejected, (state, action) => {
+      .addCase(createUser.rejected, (state, action) => {
         state.loading = false;
+        state.status = "failed";
       });
-    // builder
-    //   .addCase(addEmployee.pending, (state) => {
-    //     state.loading = true;
-    //   })
-    //   .addCase(addEmployee.fulfilled, (state, action) => {
-    //     state.loading = false;
-    //     state.employeeList.push(action.payload);
-    //     state.response = "add";
-    //   })
-    //   .addCase(addEmployee.rejected, (state, action) => {
-    //     state.loading = false;
-    //     state.message = action.error.message;
-    //   });
-
-    //     builder.addCase(removeEmployee.fulfilled, (state, action) => {
-    //       state.employeeList = state.employeeList.filter(
-    //         (item) => item._id != action.payload
-    //       );
-    //       state.response = "delete";
-    //     });
-
-    //     builder.addCase(modifiedEmployee.fulfilled, (state, action) => {
-    //       const updateItem = action.payload;
-    //       console.log(updateItem);
-    //       const index = state.employeeList.findIndex(
-    //         (item) => item._id === updateItem._id
-    //       );
-    //       if (index!==-1) {
-    //         state.employeeList[index] = updateItem;
-    //       }
-    //       state.response = "update";
-    //     });
+    builder
+      .addCase(updateUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users = state.users.map((item) => {
+          if (item.id == action.payload.id) {
+            return action.payload;
+          }
+          return item;
+        });
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.loading = false;
+        state.status = "failed";
+      });
+    builder
+      .addCase(deleteUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users = state.users.filter((item) => item.id != action.payload.id);
+      })
+      .addCase(deleteUser.rejected, (state, action) => {
+        state.loading = false;
+        state.status = "failed";
+      });
   },
 });
 
