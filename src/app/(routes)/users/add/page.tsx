@@ -127,7 +127,7 @@ export default function StockCreate() {
       </form>
       <div className="grid grid-cols-3 gap-4 mt-5">
         {userReducer.users.map((user: UserData, index: number) => (
-          <Card>
+          <Card key={index}>
             <CardContent>
               <Typography
                 sx={{ fontSize: 14 }}
