@@ -7,6 +7,7 @@ import Chip from '@mui/material/Chip';
 import HomeIcon from '@mui/icons-material/Home';
 
 import { Grid, Box, Card, Typography, Stack, TextField } from "@mui/material";
+
 // import Image from '@mui/material/Image'; // Ensure this is the correct import path
 
 import Link from "next/link";
@@ -143,68 +144,261 @@ const Attach = () => {
                                     </Grid>
                                     <Grid item xs={10}>
                                         <form>
-                                            <Typography variant="h6" mt={1} mb={3} gutterBottom>
+                                            <Typography variant="h6" mt={3} mb={3} gutterBottom>
                                                 Home Address
                                             </Typography>
                                             <Stack spacing={3}>
-                                                <TextField
-                                                    label="House Number"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
-                                                <TextField
-                                                    label="Street"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
-                                                <TextField
-                                                    label="Home Address"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
-                                                <TextField
-                                                    label="Office Address"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                />
-                                                <TextField
-                                                    label="Delivery Document Address"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                />
-                                                <TextField
-                                                    label="Sub District"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
-                                                <TextField
-                                                    label="District"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
-                                                <TextField
-                                                    label="Province"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
-                                                <TextField
-                                                    label="Zip Code"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
-                                                <TextField
-                                                    label="Contact Information"
-                                                    variant="outlined"
-                                                    fullWidth
-                                                    required
-                                                />
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="House Number"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Street"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={2}>
+                                                        <TextField
+                                                            label="Home Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="Office Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="Delivery Document Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Sub District"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="District"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Province"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={8}>
+                                                        <TextField
+                                                            label="Zip Code"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Contact Information"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                </Grid>
+                                            </Stack>
+                                            <Typography variant="h6" mt={3} mb={3} gutterBottom>
+                                                Office Address
+                                            </Typography>
+                                            <Stack spacing={3}>
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="House Number"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Street"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={2}>
+                                                        <TextField
+                                                            label="Home Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="Office Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="Delivery Document Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Sub District"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="District"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Province"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={8}>
+                                                        <TextField
+                                                            label="Zip Code"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Contact Information"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                </Grid>
+                                            </Stack>
+
+                                            <Typography variant="h6" mt={3} mb={2} gutterBottom>
+                                                Receive Address
+                                            </Typography>
+                                            <Stack spacing={3}>
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="House Number"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Street"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={2}>
+                                                        <TextField
+                                                            label="Home Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="Office Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6}>
+                                                        <TextField
+                                                            label="Delivery Document Address"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Sub District"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="District"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Province"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={8}>
+                                                        <TextField
+                                                            label="Zip Code"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        <TextField
+                                                            label="Contact Information"
+                                                            variant="outlined"
+                                                            fullWidth
+                                                            required
+                                                        />
+                                                    </Grid>
+                                                </Grid>
                                             </Stack>
                                         </form>
                                     </Grid>
@@ -228,7 +422,7 @@ const Attach = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </PageContainer>
+        </PageContainer >
     );
 };
 
