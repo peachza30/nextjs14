@@ -20,7 +20,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "Dashboard",
     icon: IconLayoutDashboard,
-    href: "/",
+    href: "/test",
   },
   {
     navlabel: true,
@@ -28,15 +28,15 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: "Typography",
+    title: "Detail",
     icon: IconTypography,
-    href: "/utilities/typography",
+    href: "/users/detail/1",
   },
   {
     id: uniqueId(),
-    title: "Shadow",
+    title: "Registration",
     icon: IconCopy,
-    href: "/utilities/shadow",
+    href: "/register",
   },
   {
     navlabel: true,

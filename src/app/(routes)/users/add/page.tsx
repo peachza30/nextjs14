@@ -18,7 +18,7 @@ import {
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CircularProgress from '@mui/material/CircularProgress';
-import Update from '@/components/form/Update';
+import Update from '../_components/Update';
 import Confirm from '@/src/components/common/Confirm';
 
 export default function StockCreate() {

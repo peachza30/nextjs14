@@ -18,9 +18,9 @@ const theme = createTheme({
   direction: "ltr",
   palette: {
     primary: {
-      main: "#5D87FF",
+      main: "#0266B3",
       light: "#ECF2FF",
-      dark: "#4570EA",
+      dark: "#03599b",
     },
     secondary: {
       main: "#49BEFF",
