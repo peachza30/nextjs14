@@ -66,7 +66,7 @@ function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
     console.info('You clicked a breadcrumb.');
 }
 
-const Attach = () => {
+const Address = () => {
     const [hoveredLabel, setHoveredLabel] = useState(null);
 
     return (
@@ -144,7 +144,7 @@ const Attach = () => {
                                     </Grid>
                                     <Grid item xs={10}>
                                         <form>
-                                            <Typography variant="h6" mt={3} mb={3} gutterBottom>
+                                            <Typography variant="h6" mt={3} mb={1} gutterBottom>
                                                 Home Address
                                             </Typography>
                                             <Stack spacing={3}>
@@ -229,7 +229,7 @@ const Attach = () => {
                                                     </Grid>
                                                 </Grid>
                                             </Stack>
-                                            <Typography variant="h6" mt={3} mb={3} gutterBottom>
+                                            <Typography variant="h6" mt={3} mb={1} gutterBottom>
                                                 Office Address
                                             </Typography>
                                             <Stack spacing={3}>
@@ -315,7 +315,7 @@ const Attach = () => {
                                                 </Grid>
                                             </Stack>
 
-                                            <Typography variant="h6" mt={3} mb={2} gutterBottom>
+                                            <Typography variant="h6" mt={3} mb={1} gutterBottom>
                                                 Receive Address
                                             </Typography>
                                             <Stack spacing={3}>
@@ -409,7 +409,7 @@ const Attach = () => {
                                                     Back
                                                 </Button>
                                             </Link>
-                                            <Link href="/users" className='mr-3'>
+                                            <Link href="/attach/documents" className='mr-3'>
                                                 <Button variant="contained" endIcon={<ArrowForwardIosIcon />}>
                                                     Next
                                                 </Button>
@@ -426,4 +426,4 @@ const Attach = () => {
     );
 };
 
-export default Attach;
+export default Address;
