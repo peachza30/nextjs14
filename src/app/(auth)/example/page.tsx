@@ -29,17 +29,39 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { log } from 'console';
 
 import VerticalStepper from "@/components/forms/theme-elements/VerticalStepper";
+import PersonalForm from '@/src/components/forms/theme-elements/PersonalForm';
+import EducationForm from '@/src/components/forms/theme-elements/EducationForm';
+import AddressForm from '@/src/components/forms/theme-elements/AddressForm';
+import FileUploadForm from '@/src/components/forms/theme-elements/FileUploadForm';
+import ResultForm from '@/src/components/forms/theme-elements/ResultForm';
 // import MultiStepForm from "@/components/forms/theme-elements/MultiStepForm";
 
 const steps = [
-    { label: 'Step 1', content: 'Content for step 1...' },
-    { label: 'Step 2', content: 'Content for step 2...' },
-    { label: 'Step 3', content: 'Content for step 3...' },
-  ];
+  {
+    label: 'ข้อมูลส่วนบุคคล',
+    content: <PersonalForm key="personal-form" />,
+  },
+  {
+    label: 'ข้อมูลการศึกษา',
+    content: <EducationForm key="education-form" />,
+  },
+  {
+    label: 'ข้อมูลที่อยู่',
+    content: <AddressForm key="address-form" />,
+  },
+  {
+    label: 'ไฟล์เอกสาร',
+    content: <FileUploadForm key="fileUpload-form" />,
+  },
+  {
+    label: 'สรุปข้อมูล',
+    content: <ResultForm key="result-form"   />,
+  },
+];
 
 const Address = () => {
 
-    return <VerticalStepper steps={steps}/>;
+  return <VerticalStepper steps={steps} />;
 
 };
 

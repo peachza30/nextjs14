@@ -7,13 +7,17 @@ import {
   Button,
   Paper,
   Typography,
-  Box
+  Box,
+  Grid,
+  Card
 } from '@mui/material';
+import AddressForm from '@/src/components/forms/theme-elements/AddressForm';
+import PersonalForm from '@/src/components/forms/theme-elements/PersonalForm';
 
-interface StepData {
+type StepData = {
   label: string;
   content: React.ReactNode;
-}
+};
 
 interface VerticalStepperProps {
   steps: StepData[];
@@ -35,45 +39,60 @@ const VerticalStepper: React.FC<VerticalStepperProps> = ({ steps }) => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400 }}>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((step, index) => (
-          <Step key={step.label}>
-            <StepLabel>{step.label}</StepLabel>
-            <StepContent>
+    <Box sx={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      padding: 2,
+    }}>
+      <Card
+        elevation={10}
+        sx={{
+          p: 4,
+          zIndex: 1,
+          width: "100%",
+          maxWidth: "1200px",
+        }}
+      >
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((step, index) => (
+            <Step key={step.label}>
+              <StepLabel>{step.label}</StepLabel>
+              <StepContent>
 
-              <Typography>{step.content}</Typography>
-              
-              <Box sx={{ mb: 2 }}>
-                
+                <Typography>{step.content}</Typography>
+                <Box sx={{ mb: 2 }}>
                   <Button
                     variant="contained"
                     onClick={handleNext}
-                    sx={{ mt: 1, mr: 1 }}
+                    sx={{ mt: 3, mr: 1 }}
+                    color={index === 4 ? 'success' : 'primary'}
+
                   >
-                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
+                    {index === steps.length - 1 ? 'บันทึก' : 'ต่อไป'}
                   </Button>
                   <Button
                     disabled={index === 0}
                     onClick={handleBack}
-                    sx={{ mt: 1, mr: 1 }}
+                    sx={{ mt: 3, mr: 1 }}
                   >
-                    Back
+                    ย้อนกลับ
                   </Button>
-                
-              </Box>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
-          </Button>
-        </Paper>
-      )}
+                </Box>
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} sx={{ p: 3 }}>
+            <Typography>All steps completed - you&apos;re finished</Typography>
+            <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+              Reset
+            </Button>
+          </Paper>
+        )}
+      </Card>
     </Box>
   );
 };

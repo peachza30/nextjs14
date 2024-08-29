@@ -31,40 +31,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { log } from 'console';
 
-import TfacLogo from "@/public/images/logos/tfacLogo.png";
-
-const steps = [
-    'ข้อมูลส่วนตัว',
-    'ข้อมูลการศึกษา',
-    'ช้อมูลที่อยู่',
-    'แนบเอกสาร',
-    'สรุป',
-];
-
-
-const StyledBreadcrumb = styled(Chip)(({ theme }) => {
-    const backgroundColor =
-        theme.palette.mode === 'light'
-            ? theme.palette.grey[100]
-            : theme.palette.grey[800];
-    return {
-        backgroundColor,
-        height: theme.spacing(3),
-        color: theme.palette.text.primary,
-        fontWeight: theme.typography.fontWeightRegular,
-        '&:hover, &:focus': {
-            backgroundColor: emphasize(backgroundColor, 0.06),
-        },
-        '&:active': {
-            boxShadow: theme.shadows[1],
-            backgroundColor: emphasize(backgroundColor, 0.12),
-        },
-    };
-}) as typeof Chip;
-function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-}
 
 const Education = () => {
     const [hoveredLabel, setHoveredLabel] = useState(null);
