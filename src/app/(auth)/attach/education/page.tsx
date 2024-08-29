@@ -22,6 +22,7 @@ import Button from '@mui/material/Button';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -65,7 +66,7 @@ function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
     console.info('You clicked a breadcrumb.');
 }
 
-const Attach = () => {
+const Education = () => {
     const [hoveredLabel, setHoveredLabel] = useState(null);
 
     return (
@@ -101,8 +102,8 @@ const Attach = () => {
                             maxWidth: { xs: 350, md: 250 },
                             marginTop: { xs: 2, md: 16 }
                         }}
-                        // alt="tfacLogo"
-                        // src={TfacLogo.src}
+                    // alt="tfacLogo"
+                    // src={TfacLogo.src}
                     />
 
                     <Grid
@@ -118,7 +119,7 @@ const Attach = () => {
 
                         <Card
                             elevation={9}
-                            sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "900px" }}
+                            sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "1200px" }}
                         >
                             <Box sx={{ width: '100%' }}>
                                 <Grid container spacing={2}>
@@ -143,8 +144,8 @@ const Attach = () => {
                                     </Grid>
                                     <Grid item xs={10}>
                                         <form>
-                                            <Typography variant="h6" mt={1} mb={3} gutterBottom>
-                                                Education
+                                            <Typography variant="h3" mt={1} mb={3} gutterBottom>
+                                                การศึกษา
                                             </Typography>
                                             <Stack spacing={3}>
                                                 <TextField
@@ -168,7 +169,7 @@ const Attach = () => {
                                     <Grid item xs={12}>
                                         <Stack direction="row" spacing={2} justifyContent="center" mt={5} >
                                             <Link href="/register" className='mr-3'>
-                                                <Button variant="outlined" color="error" startIcon={<DeleteIcon />}>
+                                                <Button variant="outlined" color="error" startIcon={<ArrowBackIosNewIcon />}>
                                                     Back
                                                 </Button>
                                             </Link>
@@ -189,4 +190,4 @@ const Attach = () => {
     );
 };
 
-export default Attach;
+export default Education;

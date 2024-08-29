@@ -1,4 +1,5 @@
 import { Roboto } from "next/font/google";
+import { Kanit } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
@@ -14,8 +15,15 @@ const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
 });
+
+const kanit = Kanit({
+  subsets: ['latin', 'thai'], // Include Thai subset
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], // All weights
+});
+
 const theme = createTheme({
   direction: "ltr",
+  
   palette: {
     primary: {
       main: "#0266B3",
@@ -71,24 +79,24 @@ const theme = createTheme({
     divider: "#e5eaef",
   },
   typography: {
-    fontFamily: plus.style.fontFamily,
+    fontFamily: `${kanit.style.fontFamily}, sans-serif`,
     h1: {
       fontWeight: 600,
       fontSize: "2.25rem",
       lineHeight: "2.75rem",
-      fontFamily: plus.style.fontFamily,
+      // fontFamily: plus.style.fontFamily,
     },
     h2: {
       fontWeight: 600,
       fontSize: "1.875rem",
       lineHeight: "2.25rem",
-      fontFamily: plus.style.fontFamily,
+      // fontFamily: plus.style.fontFamily,
     },
     h3: {
       fontWeight: 600,
       fontSize: "1.5rem",
       lineHeight: "1.75rem",
-      fontFamily: plus.style.fontFamily,
+      // fontFamily: plus.style.fontFamily,
     },
     h4: {
       fontWeight: 600,
