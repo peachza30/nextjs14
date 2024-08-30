@@ -103,7 +103,7 @@ const SignUpPage: React.FC = () => {
               id="password"
               autoComplete="new-password"
             />
-            <Link href="/attach/education" className='mr-3'>
+            <Link href="/attach/documents" className='mr-3'>
               <Button
                 fullWidth
                 variant="contained"

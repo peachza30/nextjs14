@@ -28,6 +28,7 @@ const VerticalStepper: React.FC<VerticalStepperProps> = ({ steps }) => {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    console.log(steps)
   };
 
   const handleBack = () => {

@@ -11,14 +11,14 @@ interface FileData {
     name: string;
 }
 
-interface ReviewFormProps {
-    addressData: AddressData;
-    files: FileData[];
-    onEdit: () => void;
-    onSubmit: () => void;
-}
+// interface ResultFormProps {
+//     addressData: AddressData;
+//     files: FileData[];
+//     onEdit: () => void;
+//     onSubmit: () => void;
+// }
 
-const ReviewForm: React.FC<ReviewFormProps> = ({ }) => {
+const ResultForm: React.FC = () => { //<ResultFormProps>
     return (
         <Box sx={{ p: 2 }}>
             <Typography variant="h4" gutterBottom>
@@ -50,7 +50,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ }) => {
                         <Typography variant="body1"><strong>Office Address:</strong> 456</Typography>
                         <Typography variant="body1"><strong>Receive Address:</strong>789 </Typography>
                     </Stack>
-                    
+
                 </CardContent>
             </Card>
 
@@ -59,23 +59,12 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ }) => {
                     <Typography variant="h6" gutterBottom>
                         Uploaded Files
                     </Typography>
-                    {/* <Stack spacing={1}>
-            {files.map((file, index) => (
-              <Typography key={index} variant="body1">
-                {file.name}
-              </Typography>
-            ))}
-          </Stack> */}
                 </CardContent>
             </Card>
-
             <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-                {/* <Button variant="contained" color="success" >
-                    Submit
-                </Button> */}
             </Stack>
         </Box>
     );
 };
 
-export default ReviewForm;
+export default ResultForm;

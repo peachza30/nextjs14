@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import userReducer from "@/store/slices/userSlice";
+import attachReducer from "@/store/slices/attachSlice";
 
-const reducer = { userReducer };
+const reducer = { userReducer, attachReducer };
 
 export const store = configureStore({
   reducer,
